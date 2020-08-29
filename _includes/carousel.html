@@ -1,12 +1,13 @@
+{% assign sorted_projects = site.projects | sort: 'number' %}
 <section class="container-lg no-padding-for-smaller-devices">
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
-      {% for project in site.projects %}
+      {% for project in sorted_projects %}
         <li data-target="#carouselExampleFade" data-slide-to="{{project.number}}" {% if project.number == 1 %}class="active"{% endif %}></li>
       {% endfor %}
     </ol>
     <div class="carousel-inner">
-      {% for project in site.projects %}
+      {% for project in sorted_projects %}
         <div class="carousel-item {% if project.number == 1 %}active{% endif %}">
           <img src="{{project.cover.image}}" class="d-block w-100" alt="{{project.cover.alt}}">
         </div>
