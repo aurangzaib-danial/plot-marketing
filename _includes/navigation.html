@@ -1,8 +1,9 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-white bg-white">
+  <nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container">
       <a class="navbar-brand" href="/">
         <img src="/assets/images/logo.jpeg" width="70" height="70" alt="" loading="lazy">
+        Plot Marketing
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +12,12 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto ">
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Home</a>
+          {% for item in site.data.navigation %}
+          <li class="nav-item{% if page.url == item.link %} active{% endif %}">
+            <a class="nav-link" href="{{ item.link }}">{{ item.name }}</a> 
+            {% if page.url == item.link %}<span class="sr-only">(current)</span>{% endif %}
           </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
