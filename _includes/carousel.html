@@ -3,7 +3,7 @@
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
       {% for project in sorted_projects %}
-        <li data-target="#carouselExampleFade" data-slide-to="{{project.number}}" {% if project.number == 1 %}class="active"{% endif %}></li>
+        <li data-target="#carouselExampleFade" data-slide-to="{{project.number | minus: 1}}" {% if project.number == 1 %}class="active"{% endif %}></li>
       {% endfor %}
     </ol>
     <div class="carousel-inner">
