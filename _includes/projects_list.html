@@ -1,0 +1,13 @@
+{% assign sorted_projects = site.projects | sort: 'number' %}
+<section id="projectsList" class="container">
+  <div class="row">
+    {% for project in sorted_projects %}
+      <div class="col-lg-4">
+        <img src="{{project.cover.image}}" width="140" height="140" class="rounded-circle" alt="{{project.cover.alt}}">
+        <h2>{{project.title}}</h2>
+        <p>{{project.excerpt}}</p>
+        <p><a class="btn btn-secondary" href="{{project.link}}" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    {% endfor %}
+  </div>
+</section>
